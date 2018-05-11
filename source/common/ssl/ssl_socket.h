@@ -50,6 +50,7 @@ public:
   const std::string& urlEncodedPemEncodedPeerCertificate() const override;
   std::vector<std::string> dnsSansPeerCertificate() const override;
   std::vector<std::string> dnsSansLocalCertificate() const override;
+  std::string exportKeyingMaterial(int length, const std::string& label) const override;
 
   // Network::TransportSocket
   void setTransportSocketCallbacks(Network::TransportSocketCallbacks& callbacks) override;

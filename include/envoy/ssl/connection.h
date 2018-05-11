@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <string>
 #include <vector>
 
@@ -73,6 +74,8 @@ public:
    *         Returns {} if there is no local certificate, or no SAN field, or no DNS.
    **/
   virtual std::vector<std::string> dnsSansLocalCertificate() const PURE;
+
+  virtual std::string exportKeyingMaterial(int length, const std::string& label) const PURE;
 };
 
 } // namespace Ssl

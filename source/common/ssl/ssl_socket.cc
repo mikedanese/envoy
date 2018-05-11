@@ -254,6 +254,15 @@ std::vector<std::string> SslSocket::dnsSansLocalCertificate() const {
   return getDnsSansFromCertificate(cert);
 }
 
+std::string SslSocket::exportKeyingMaterial(int length, const std::string& label) const {
+  std::vector<uint8_t> b(length);
+  if (!SSL_export_keying_material(ssl_.get(), b.data(), b.size(), label.c_str(), label.length(),
+                                  nullptr, 0, false))
+    return "";
+  std::string out(b.begin(), b.end());
+  return out;
+};
+
 const std::string& SslSocket::sha256PeerCertificateDigest() const {
   if (!cached_sha_256_peer_certificate_digest_.empty()) {
     return cached_sha_256_peer_certificate_digest_;
