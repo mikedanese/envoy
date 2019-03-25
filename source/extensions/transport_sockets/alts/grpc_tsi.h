@@ -11,6 +11,7 @@
 #include "grpc/grpc_security.h"
 #include "src/core/tsi/alts/handshaker/alts_tsi_handshaker.h"
 #include "src/core/tsi/transport_security_interface.h"
+#include "src/core/tsi/alts/handshaker/alts_shared_resource.h"
 
 #pragma GCC diagnostic pop
 
